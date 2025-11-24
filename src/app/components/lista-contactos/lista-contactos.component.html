@@ -1,0 +1,33 @@
+<div class="container mt-3">
+  <h2>Lista de Contactos</h2>
+
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar por nombre"
+      [(ngModel)]="filtroNombre"
+    />
+  </div>
+
+  <div *ngIf="contactosFiltrados.length === 0">
+    <p>No hay contactos.</p>
+  </div>
+
+  <ul class="list-group" *ngIf="contactosFiltrados.length > 0">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let contacto of contactosFiltrados"
+    >
+      <div>
+        <strong>{{ contacto.nombre }}</strong><br />
+        <small>{{ contacto.telefono }} | {{ contacto.email }}</small>
+      </div>
+      <a
+        [routerLink]="['/contacto', contacto.id]"
+        class="btn btn-danger btn-sm"
+        >Ver Detalle</a
+      >
+    </li>
+  </ul>
+</div>

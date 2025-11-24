@@ -1,0 +1,16 @@
+<div class="container mt-3" *ngIf="contacto; else noContacto">
+  <h2>Detalle de Contacto</h2>
+  <p><strong>ID:</strong> {{ contacto.id }}</p>
+  <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
+  <p><strong>Teléfono:</strong> {{ contacto.telefono }}</p>
+  <p><strong>Email:</strong> {{ contacto.email }}</p>
+
+  <button class="btn btn-secondary" routerLink="/contactos">Volver a Contactos</button>
+</div>
+
+<ng-template #noContacto>
+  <div class="container mt-3">
+    <p>Contacto no encontrado.</p>
+    <button class="btn btn-secondary" routerLink="/contactos">Volver a Contactos</button>
+  </div>
+</ng-template>
